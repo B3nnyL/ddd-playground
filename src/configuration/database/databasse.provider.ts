@@ -1,5 +1,6 @@
 import {createConnection} from 'typeorm'
 import { Product } from '../../persistence/product/product.entity'
+import { Review } from 'src/persistence/review/review.entity'
 
 export const databaseProviders= [
     {
@@ -12,7 +13,7 @@ export const databaseProviders= [
             password: 'postgres',
             database: 'test',
             entities: [
-                Product
+                Product, Review
             ],
             synchronize: true
         })
