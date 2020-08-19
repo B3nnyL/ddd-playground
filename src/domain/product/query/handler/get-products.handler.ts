@@ -1,8 +1,9 @@
 import { IQueryHandler, QueryHandler } from "@nestjs/cqrs";
 import { Repository } from "typeorm"
 import { GetProductsQuery } from "../impl/get-products.query";
-import { Product } from "src/persistence/product/product.entity"
+import { Product } from "../../../../persistence/product/product.entity"
 import { Inject } from "@nestjs/common";
+import { DatabaseNotFoundException } from "../../../../util/exception";
 
 @QueryHandler(GetProductsQuery)
 export class getProductsHandler implements IQueryHandler<GetProductsQuery>{
@@ -12,6 +13,11 @@ export class getProductsHandler implements IQueryHandler<GetProductsQuery>{
     ){}
 
     async execute(query: GetProductsQuery){
-        return this.repository.find()
+        try {
+            const response = await this.repository.find()
+            return { items : response}
+        } catch(err) {
+            throw new DatabaseNotFoundException("GET products", "No data found")
+        }
     }
 }

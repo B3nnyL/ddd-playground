@@ -19,17 +19,11 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  xit('/ (GET)', () => {
+  it('/ (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/products')
       .expect(200)
       .expect('Hello World!');
   });
 
-  it('/ (GET) products', () => {
-    return request(app.getHttpServer())
-      .get('/products')
-      .expect(200)
-      .expect(response, () => console.log(response));
-  });
 });

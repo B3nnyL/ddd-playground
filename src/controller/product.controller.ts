@@ -26,17 +26,17 @@ export class ProductController {
     }
 
     @Delete("/:id")
-    async deleteProductById(@Param() id): Promise<any> {
-        return this.commandBus.execute(new DeleteProductCommand(id))
+    async deleteProductById(@Param("id") id): Promise<any> {
+        return await this.commandBus.execute(new DeleteProductCommand(id))
     }
 
     @Put("/:id")
-    async updateProductById(@Param() id, @Body() productDto: IProductDto): Promise<any> {
+    async updateProductById(@Param("id") id, @Body() productDto: IProductDto): Promise<any> {
         return this.commandBus.execute(new UpdateProductCommand(id, productDto))
     }
 
     @Get("/:id")
-    async getProductById(@Param() id): Promise<Product>{
+    async getProductById(@Param("id") id): Promise<Product>{
         return this.queryBus.execute(new GetProductQuery(id))
     } 
 }
