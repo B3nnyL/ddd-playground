@@ -1,6 +1,6 @@
 import { Connection } from 'typeorm'
 import { Review } from './review.entity'
-import { REVIEW_REPOSITORY } from 'src/util/constants'
+import { REVIEW_REPOSITORY } from '../../util/constants'
 
 export const reviewProviders = [
     {

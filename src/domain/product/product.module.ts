@@ -4,7 +4,7 @@ import { productProviders } from '../../persistence/product/product.provider'
 import { ProductController } from "../../controller/product.controller";
 import { CommandHandler } from "./command/handler/index";
 import { QueryHandlers } from './query/handler/index'
-import { DatabaseModule } from "src/configuration/database/database.module";
+import { DatabaseModule } from "../../configuration/database/database.module";
 
 @Module({
     imports: [CqrsModule, DatabaseModule],

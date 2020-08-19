@@ -1,12 +1,12 @@
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
 import { Post, Controller, Body, Get, Delete, Param, Put } from "@nestjs/common";
 import {IProductDto} from '../domain/product/dto/product.dto.interface'
-import { AddProductCommand } from "src/domain/product/command/impl/add-product.command";
-import { Product } from "src/persistence/product/product.entity";
-import { GetProductsQuery } from "src/domain/product/query/impl/get-products.query";
-import { GetProductQuery } from "src/domain/product/query/impl/get-product.query"
-import { DeleteProductCommand } from "src/domain/product/command/impl/delete-product.command";
-import { UpdateProductCommand } from "src/domain/product/command/impl/update-product.command";
+import { AddProductCommand } from "../domain/product/command/impl/add-product.command";
+import { Product } from "../persistence/product/product.entity";
+import { GetProductsQuery } from "../domain/product/query/impl/get-products.query";
+import { GetProductQuery } from "../domain/product/query/impl/get-product.query"
+import { DeleteProductCommand } from "../domain/product/command/impl/delete-product.command";
+import { UpdateProductCommand } from "../domain/product/command/impl/update-product.command";
 
 @Controller("products")
 export class ProductController {

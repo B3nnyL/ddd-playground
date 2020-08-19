@@ -1,6 +1,6 @@
 import {createConnection} from 'typeorm'
 import { Product } from '../../persistence/product/product.entity'
-import { Review } from 'src/persistence/review/review.entity'
+import { Review } from '../../persistence/review/review.entity'
 
 export const databaseProviders= [
     {

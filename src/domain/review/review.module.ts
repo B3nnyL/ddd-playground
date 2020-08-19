@@ -4,7 +4,7 @@ import { reviewProviders } from '../../persistence/review/review.provider'
 import { ReviewController } from "../../controller/review.controller";
 import { QueryHandlers } from './query/handler/index'
 import { CommandHandlers } from './command/handler/index'
-import { DatabaseModule } from "src/configuration/database/database.module";
+import { DatabaseModule } from "../../configuration/database/database.module";
 
 @Module({
     imports: [CqrsModule, DatabaseModule],

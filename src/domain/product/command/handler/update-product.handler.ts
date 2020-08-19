@@ -1,9 +1,9 @@
 import { ICommandHandler, CommandHandler } from "@nestjs/cqrs";
 import { UpdateProductCommand } from "../impl/update-product.command";
 import { Repository } from "typeorm";
-import { Product } from "src/persistence/product/product.entity";
+import { Product } from "../../../../persistence/product/product.entity";
 import { Inject } from "@nestjs/common";
-import { PRODUCT_REPOSITORY } from "src/util/constants";
+import { PRODUCT_REPOSITORY } from "../../../../util/constants";
 @CommandHandler(UpdateProductCommand)
 export class updateProductHandler implements ICommandHandler<UpdateProductCommand>{
     constructor(

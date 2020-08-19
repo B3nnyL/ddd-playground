@@ -1,11 +1,11 @@
 import { Controller, Post, Body, Get, Param, Delete, Put } from "@nestjs/common"
 import { CommandBus, QueryBus } from "@nestjs/cqrs"
-import { AddReviewCommand } from "src/domain/review/command/impl/add-review.command"
-import { GetReviewsQuery } from "src/domain/review/query/impl/get-reviews.query"
-import { GetSingleReviewQuery } from "src/domain/review/query/impl/get-singlereview.query"
-import { DeleteReviewCommand } from "src/domain/review/command/impl/delete-review.command"
-import { UpdateReviewCommand } from "src/domain/review/command/impl/update-review.command"
-import { IReviewDto } from "src/domain/review/dto/review.dto.interface"
+import { AddReviewCommand } from "../domain/review/command/impl/add-review.command"
+import { GetReviewsQuery } from "../domain/review/query/impl/get-reviews.query"
+import { GetSingleReviewQuery } from "../domain/review/query/impl/get-singlereview.query"
+import { DeleteReviewCommand } from "../domain/review/command/impl/delete-review.command"
+import { UpdateReviewCommand } from "../domain/review/command/impl/update-review.command"
+import { IReviewDto } from "../domain/review/dto/review.dto.interface"
 
 @Controller("products")
 export class ReviewController {

@@ -1,10 +1,9 @@
 import { CommandHandler, ICommandHandler } from "@nestjs/cqrs";
 import { AddReviewCommand } from "../impl/add-review.command";
-import { AddProductCommand } from "src/domain/product/command/impl/add-product.command";
 import { Repository } from "typeorm";
-import { Review } from "src/persistence/review/review.entity";
+import { Review } from "../../../../persistence/review/review.entity";
 import { Inject } from "@nestjs/common";
-import { REVIEW_REPOSITORY } from "src/util/constants";
+import { REVIEW_REPOSITORY } from "../../../../util/constants";
 
 @CommandHandler(AddReviewCommand)
 export class AddReviewHandler implements ICommandHandler<AddReviewCommand> {
