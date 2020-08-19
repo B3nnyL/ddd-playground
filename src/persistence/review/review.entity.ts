@@ -1,11 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, OneToOne } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, Generated } from 'typeorm'
 import { Product } from '../product/product.entity';
 
 @Entity()
 export class Review {
     
     @PrimaryGeneratedColumn("uuid")
-    id: string = ""
+    id: string =""
 
     @Column('int')
     rate: number
@@ -13,7 +13,7 @@ export class Review {
     @Column('text')
     desciption: string
 
-    @OneToMany(type => Product, product => product.id)
+    @ManyToOne(type => Product, product => product.id, { onDelete: 'CASCADE' })
     product_id: string;
 
 }
