@@ -4,11 +4,12 @@ import { GetProductsQuery } from "../impl/get-products.query";
 import { Product } from "../../../../persistence/product/product.entity"
 import { Inject } from "@nestjs/common";
 import { DatabaseNotFoundException } from "../../../../util/exception";
+import { PRODUCT_REPOSITORY } from "../../../../util/constants";
 
 @QueryHandler(GetProductsQuery)
 export class getProductsHandler implements IQueryHandler<GetProductsQuery>{
     constructor(
-        @Inject("PRODUCT_REPOSITORY")
+        @Inject(PRODUCT_REPOSITORY)
         private readonly repository: Repository<Product>
     ){}
 

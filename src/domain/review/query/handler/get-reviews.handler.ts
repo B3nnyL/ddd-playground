@@ -13,7 +13,6 @@ export class getReviewsHandler implements IQueryHandler<GetReviewsQuery>{
     ) {}
 
     async execute(query: GetReviewsQuery){
-        console.log("review query")
         return this.repository.find({product_id: query.productId})
     }
 }
