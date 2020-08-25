@@ -4,26 +4,31 @@ import { GetReviewsQuery } from "./query/impl/get-reviews.query";
 import { GetSingleReviewQuery } from "./query/impl/get-singlereview.query";
 import { DeleteReviewCommand } from "./command/impl/delete-review.command";
 import { UpdateReviewCommand } from "./command/impl/update-review.command";
+import { CommandBus, QueryBus } from "@nestjs/cqrs";
 
 export class ReviewService {
+    constructor(
+        private readonly commandBus: CommandBus,
+        private readonly queryBus: QueryBus
+    ){}
 
     addReview(pid: string, reviewDto: IReviewDto){
-        return new AddReviewCommand(reviewDto, pid)
+        return this.commandBus.execute(new AddReviewCommand(reviewDto, pid))
     }
 
     getReviews(pid: string) {
-        return new GetReviewsQuery(pid)
+        return this.queryBus.execute(new GetReviewsQuery(pid))
     }
 
     getReview(rid: string) {
-        return new GetSingleReviewQuery(rid)
+        return this.queryBus.execute(new GetSingleReviewQuery(rid))
     }
 
     deleteReview(rid: string) {
-        return new DeleteReviewCommand(rid)
+        return this.commandBus.execute(new DeleteReviewCommand(rid))
     }
 
     updateReview(rid: string, reviewDto: IReviewDto) {
-        return new UpdateReviewCommand(rid, reviewDto)
+        return this.commandBus.execute(new UpdateReviewCommand(rid, reviewDto))
     }
 }
